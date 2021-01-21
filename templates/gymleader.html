@@ -1,0 +1,78 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+
+{% block content %}
+<link rel="stylesheet" href="{{url_for('.static', filename='starter-template.css')}}">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ url_for('pokedex_index.index') }}">Pokedex</a>
+          </div>
+          <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="{{ url_for('dashboard') }}">Home</a></li>
+
+              <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+  
+      <div class="container">
+
+        <h2>Gym Leaders</h2>
+        <!-- <div class="input_part"> 
+                <label class="lable_part" for="Min_length"><b>Type</b></label>
+                <select class="" name="Leader_Type" method="POST">
+                    <option value="none">None</option>
+                    <option value="Bug">Bug</option>
+                    <option value="Rock">Rock</option>
+                    <option value="Fighting">Fighting</option>
+                    <option value="Grass">Grass</option>
+                    <option value="Electric">Electric</option>
+                    <option value="Fairy">Fairy</option>
+                    <option value="Psychic">Psychic</option>
+                    <option value="Ice">Ice</option>
+                    <option value="Grass">Grass</option>
+                    <option value="Poison">Poison</option>
+                    <option value="Fire">Fire</option>
+                    <option value="Ground">Ground</option>
+                    <option value="Flying">Flying</option>
+                    <option value="Ghost">Ghost</option>
+                    <option value="Steel">Steel</option>
+                    <option value="Ice">Ice</option>
+                    <option value="Dragon">Dragon</option>
+                    <option value="Water">Water</option>
+                </select>
+            </div> -->
+        <form method="POST">
+            Leader Type:
+            <input type="text" name="Leader_Type" placeholder="e.g., rock, water...">
+            Leader Region:
+            <input type="text" name="Leader_Region" placeholder="e.g., Kanto, Johto..."">
+
+            <input type="submit" value="Submit">
+        </form>
+        <a href="{{url_for('gymleaders')}}">Clean Filter</a>
+        <table class="table table-striped">
+            <tr><th>Name</th><th>Region</th><th>Location</th><th>Type</th><th>Badge</th><th>Leader Image</th><th>Badge Image</th>      </tr>
+                {% for gymleader in gymleaders %}
+                    <tr><td> <b><a href="{{url_for('leader_pokemon_list', name=gymleader.name)}}">{{ gymleader.name }}</a></b></a> </td> <td>{{ gymleader.region}}</td> <td>{{ gymleader.location }}</td> <td>{{ gymleader.type }} </td> <td>{{ gymleader.badge }}</td> <td><img src="{{ gymleader.leaderimage }}"</td> <td><img src="{{ gymleader.badgeimage }}"</td></tr>
+    
+                {% endfor %}
+                </table>
+
+    </div><!-- /.container -->
+{% endblock %}

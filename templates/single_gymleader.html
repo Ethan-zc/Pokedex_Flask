@@ -1,0 +1,56 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+
+{% block content %}
+<link rel="stylesheet" href="{{url_for('.static', filename='starter-template.css')}}">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ url_for('pokedex_index.index') }}">Pokedex</a>
+          </div>
+          <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="{{ url_for('dashboard') }}">Home</a></li>
+
+              <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+  
+      <div class="container">
+
+        <h2>Gym Leaders {{name}} List</h2>
+
+        <table class="table table-striped">
+                <tr><th>Name</th><th>Region</th><th>Location</th><th>Type</th><th>Badge</th><th>Leader Image</th><th>Badge Image</th>      </tr>
+                    {% for gymleader in gymleaders %}
+                        <tr><td> <b>{{ gymleader.name }}</b></a> </td> <td>{{ gymleader.region}}</td> <td>{{ gymleader.location }}</td> <td>{{ gymleader.type }} </td> <td>{{ gymleader.badge }}</td> <td><img src="{{ gymleader.leaderimage }}"</td> <td><img src="{{ gymleader.badgeimage }}"</td></tr>
+        
+                    {% endfor %}
+                    </table>
+
+        <table class="table table-striped">
+
+
+                {% for pokemon in poke_list %}
+            <tr><th>Name</th><th>Image</th>  <th>Specia Move</th>  <th>Description</th>         </tr>
+                <tr><td> <b>{{ pokemon.name }}</b></a> </td> <td><img src={{ pokemon.image }}></td> <td>{{ pokemon.uniquemove }}</td> <td>{{ pokemon.description }}</td> </tr>
+                {% endfor %}
+        </table>
+
+
+    </div><!-- /.container -->
+{% endblock %}

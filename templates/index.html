@@ -1,0 +1,101 @@
+
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+Pokedex Index
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+{% endblock %}
+
+{% block content %}
+
+
+</div>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{{url_for('pokedex_index.index')}}">Pokedex</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="{{url_for('dashboard')}}">Home</a></li>
+            <li><a href="{{ url_for('login') }}">Login</a></li>
+            <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <br>
+    <br>
+    <br>
+
+
+    <div style="background-image: url('https://miro.medium.com/max/2560/1*wXNnTmsR-3TTzZVfaIGEYw.png'); background-size: cover;">
+
+      <div class="starter-template">
+        <center>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+
+
+
+          
+
+        </center>
+        
+      </div>
+    
+    </div><!-- /.container -->
+    <!-- <img src="https://static-ssl.businessinsider.com/image/5d0bf7bc0a284967e94ab267-1280/1s-eno4yd9kfag2k8vytumg.jpeg"> -->
+    
+{% endblock %}

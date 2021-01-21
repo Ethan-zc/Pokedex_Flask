@@ -1,0 +1,57 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block title %}
+Add Pokemon
+{% endblock %}
+
+
+{% block content %}
+<link rel="stylesheet" href="{{url_for('.static', filename='starter-template.css')}}">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{{ url_for('pokedex_index.index') }}">Pokedex</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="{{ url_for('dashboard') }}">Home</a></li>
+            <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+
+        <h2>Add Pokemon to your team!</h2>
+
+        <form method="POST">
+                Pokemon Name:
+                <input type="text" name="Pokemon_Name" placeholder="e.g., pikachu, ditto...">
+                
+                <input type="submit" value="Search">
+            </form>
+
+        <a href="{{url_for('addpokemon')}}">Clean Search</a>
+        <!-- <table class="table table-striped">
+
+
+
+            <tr><th>Name</th><th>Gym Leader</th><th>Region</th><th>Connection Locations</th><th>image</th>          </tr>
+                {% for city in cities %}
+                    <tr><td> <b>{{ city.name }}</b></a> </td> <td>{{ city.gymleader }}</td> <td>{{ city.region }} </td> <td>{{ city.connectinglocations}}</td> <td><img src="{{ city.image }}"</td> </tr>
+    
+                {% endfor %}
+                </table> -->
+
+    </div><!-- /.container -->
+{% endblock %}
